@@ -6,10 +6,28 @@ namespace About_Me_Quiz
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            QuestionOne();
-            QuestionTwo();
-            QuestionThree();
+            try
+            {
+                QuestionOne();
+                QuestionTwo();
+                QuestionThree();
+                QuestionFour();
+                QuestionFive();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Something bad happend");
+                QuestionOne();
+                QuestionTwo();
+                QuestionThree();
+                QuestionFour();
+                QuestionFive();
+            }
+            finally
+            {
+                Console.WriteLine("Congrats");
+            }
+            
             Console.ReadLine();
         }
         static int QuestionOne()
@@ -46,10 +64,22 @@ namespace About_Me_Quiz
         {
             Console.Write("Where do I live? ");
             string input = Console.ReadLine();
-            if (input == Seattle || seattle)
-            {
-
-            }
+            string formattedInput = input.ToUpper();
+            if (formattedInput == "SEATTLE")
+                Console.WriteLine("You are correct.");
+            else
+                Console.WriteLine("You are incorrect.");
+            return input;
+        }
+        static string QuestionFive()
+        {
+            Console.Write("What is my favorite food? ");
+            string input = Console.ReadLine();
+            string formattedInput = input.ToUpper();
+            if (formattedInput == "FOOD")
+                Console.WriteLine("You are correct.");
+            else
+                Console.WriteLine("You are incorrect.");
             return input;
         }
 
